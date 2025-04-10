@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import Header from "./components/Header";
 import MovieContainer from "./components/MovieContainer";
+export const UserContext = createContext();
 
 const Imdb = () => {
   const [images , setImages] = useState([]);
@@ -27,10 +28,10 @@ const Imdb = () => {
   },[]);
   console.log(images);
     return (
-      <>
-      <Header images={images} />
-      <MovieContainer images={images}/>
-      </>
+      <UserContext.Provider value={images}>
+      <Header/>
+      <MovieContainer/>
+      </UserContext.Provider>
     )
 };
 export default Imdb;

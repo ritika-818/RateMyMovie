@@ -1,6 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { UserContext } from "../Imdb";
 
-const MovieContainer = ({images}) => {
+const MovieContainer = () => {
+  const images = useContext(UserContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
 

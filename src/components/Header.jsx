@@ -1,10 +1,12 @@
 import Menu from "./Menu";
 import AllFilter from "./AllFilter";
 import SearchList from "./SearchList";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import { UserContext } from "../Imdb";
 
-const Header = ({images}) => {
+const Header = () => {
+  const images = useContext(UserContext);
   const [showHeader, setShowHeader] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
   const [allFilter, setAllFilter] = useState(false);
