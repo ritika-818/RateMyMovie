@@ -1,12 +1,12 @@
 import Menu from "./Menu";
 import AllFilter from "./AllFilter";
 import SearchList from "./SearchList";
-import { useState, useContext } from "react";
+import { useState} from "react";
 import { useNavigate } from "react-router";
-import { UserContext } from "../Imdb";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const images = useContext(UserContext);
+  const images = useSelector((state) => state.movies.list)
   const [showHeader, setShowHeader] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
   const [allFilter, setAllFilter] = useState(false);

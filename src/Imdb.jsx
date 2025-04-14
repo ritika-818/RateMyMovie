@@ -1,10 +1,11 @@
 import { useEffect, useState, createContext } from "react";
 import Header from "./components/Header";
 import MovieContainer from "./components/MovieContainer";
-export const UserContext = createContext();
+import { useDispatch } from "react-redux";
+import { setMovies } from "./slice/movieSlice";
 
 const Imdb = () => {
-  const [images , setImages] = useState([]);
+  const dispatch = useDispatch();
   async function fetchMovies(){
     const url =
       "https://movie-database-api1.p.rapidapi.com/list_movies.json?limit=20&page=1&quality=all&genre=all&minimum_rating=0&query_term=0&sort_by=date_added&order_by=desc&with_rt_ratings=false";
@@ -18,20 +19,19 @@ const Imdb = () => {
     try{
       const response = await fetch(url, options);
       const result = await response.json();
-      setImages(result.data.movies);
+      dispatch (setMovies(result.data.movies));
     } catch(error){
       console.log(error);
     }
   }
   useEffect(()=>{
     fetchMovies();
-  },[]);
-  console.log(images);
+  },[dispatch]);
     return (
-      <UserContext.Provider value={images}>
+      <>
       <Header/>
       <MovieContainer/>
-      </UserContext.Provider>
+      </>
     )
 };
 export default Imdb;

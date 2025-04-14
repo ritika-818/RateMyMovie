@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef, useContext } from "react";
-import { UserContext } from "../Imdb";
+import { useState, useEffect, useRef} from "react";
+import { useSelector } from "react-redux";
 
 const MovieContainer = () => {
-  const images = useContext(UserContext);
+  const images = useSelector((state) => state.movies.list);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
-
+  console.log("images in movieContainer" , images);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % 20);
