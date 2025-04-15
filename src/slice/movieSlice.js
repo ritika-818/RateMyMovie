@@ -7,7 +7,10 @@ const movieSlice = createSlice({
         setMovies (state , action){
             state.list = action.payload;
         },
+        fetchMovies(state){
+            return state;
+        },
     },
 });
-export const {setMovies} = movieSlice.actions;
+export const {setMovies, fetchMovies} = movieSlice.actions;
 export default movieSlice.reducer;
