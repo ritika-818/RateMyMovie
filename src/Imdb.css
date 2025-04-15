@@ -16,6 +16,7 @@
   gap: 30px;
 }
 .header-logo {
+  cursor: pointer;
   width: 64px;
   height: 32px;
   background-color: yellow;
@@ -179,9 +180,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
 }
 .search-list .search-item {
+  padding-inline: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   gap: 20px;
   cursor: pointer;

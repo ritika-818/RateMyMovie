@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const images = useSelector((state) => state.movies.list)
+  const images = useSelector((state) => state.movies.list);
   const [showHeader, setShowHeader] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
   const [allFilter, setAllFilter] = useState(false);
@@ -30,7 +30,7 @@ const Header = () => {
     <>
       {showHeader && (
         <div className="header">
-          <div className="header-logo">IMDb</div>
+          <div className="header-logo" onClick={()=>navigate("/")}>IMDb</div>
           <div
             className="header-menu"
             onClick={() => {
@@ -46,10 +46,11 @@ const Header = () => {
             </div>
             <input
               className="header-search"
+              value={searchVal}
               onChange={(e)=>handleSearch(e.target.value)}
             ></input>
           </div>
-          {searchVal !== "" && <SearchList images={filterImg}/>}
+          {searchVal !== "" && <SearchList images={filterImg} setSearchVal={setSearchVal} searchVal = {searchVal}/>}
           <div className="header-sign-in header-menu" onClick={handleSingIn}>
             SignIn
           </div>
