@@ -1,0 +1,41 @@
+.popular-celeb{
+    background-color: black;
+    color: white;
+    height: auto;
+    display: flex;
+        max-width: 100vw;
+        overflow-x: auto;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    & .celeb-container{
+        height: 270px;
+        width: 270px;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        & .celeb{
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            overflow: hidden;
+            &-img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                cursor: pointer;
+                &:hover{
+                    opacity: 70%;
+                }
+            }
+        }
+        & .celeb-name{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: larger;
+            font-weight: 600;
+        }
+    }
+}

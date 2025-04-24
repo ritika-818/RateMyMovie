@@ -129,6 +129,7 @@
   display: none;
 }
 .movie-container .movie-carousel .movie-img-container {
+  cursor: pointer;
   height: 100%;
   min-width: 800px;
   border-radius: 20px;
@@ -140,33 +141,43 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.movie-container .movie-suggestion-container {
+.movie-container .up-next-container {
+  width: 500px;
+}
+.movie-container .up-next-container .movie-suggestion-container {
   display: flex;
   flex-direction: column;
   background-color: #121212;
-  width: auto;
+  width: 100%;
   gap: 20px;
   padding: 20px;
   height: 460px;
   overflow-y: hidden;
 }
-.movie-container .movie-suggestion-container .movie-suggestion {
-  width: auto;
+.movie-container .up-next-container .movie-suggestion-container .movie-suggestion {
+  cursor: pointer;
+  width: 100%;
   display: flex;
   gap: 20px;
   min-height: 200px;
 }
-.movie-container .movie-suggestion-container .movie-suggestion-img {
-  width: 200px;
+.movie-container .up-next-container .movie-suggestion-container .movie-suggestion-img {
+  width: 50%;
+  height: 200px;
+  background-color: grey;
   height: 100%;
   border-radius: 16px;
   overflow: hidden;
 }
-.movie-container .movie-suggestion-container .movie-suggestion-img .movie-img {
+.movie-container .up-next-container .movie-suggestion-container .movie-suggestion-img .movie-img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.movie-container .up-next-container .movie-suggestion-container .movie-suggestion-content {
+  width: 50%;
+  height: auto;
 }
 
 .search-list {
@@ -205,4 +216,52 @@
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.movie-item {
+  height: calc(100vh - 70px);
+  width: 100vw;
+}
+
+.popular-celeb {
+  background-color: black;
+  color: white;
+  height: auto;
+  display: flex;
+  max-width: 100vw;
+  overflow-x: auto;
+}
+.popular-celeb::-webkit-scrollbar {
+  display: none;
+}
+.popular-celeb .celeb-container {
+  height: 270px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+.popular-celeb .celeb-container .celeb {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.popular-celeb .celeb-container .celeb-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+}
+.popular-celeb .celeb-container .celeb-img:hover {
+  opacity: 70%;
+}
+.popular-celeb .celeb-container .celeb-name {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: larger;
+  font-weight: 600;
 }/*# sourceMappingURL=Imdb.css.map */

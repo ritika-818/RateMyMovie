@@ -3,6 +3,7 @@ import { useEffect, useState, createContext } from "react";
 import MovieContainer from "./components/MovieContainer";
 import { useDispatch } from "react-redux";
 import { fetchMovies } from "./slice/movieSlice";
+import PopularCelebs from "./components/PopularCelebs";
 
 const Imdb = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const Imdb = () => {
     return (
       <>
       <MovieContainer/>
+      <PopularCelebs/>
       </>
     )
 };

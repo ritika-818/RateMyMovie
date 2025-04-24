@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef} from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const MovieContainer = () => {
   const images = useSelector((state) => state.movies.list);
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
   console.log("images in movieContainer" , images);
@@ -28,7 +30,7 @@ const MovieContainer = () => {
     <div className="movie-container">
       <div className="movie-carousel" ref={carouselRef}>
         {images.map((elem, i) => (
-          <div key={i} className="movie-img-container">
+          <div key={i} className="movie-img-container" onClick={()=>navigate(`/movie/${elem.title}`, { state: elem })}>
             <img className="movie-img" src={elem.large_cover_image} alt={`img-${i}`} />
           </div>
         ))}
@@ -39,7 +41,7 @@ const MovieContainer = () => {
           {images.map(
             (elem, i) =>
               i > currentIndex && (
-                <div className="movie-suggestion" key={i}>
+                <div className="movie-suggestion" key={i} onClick={()=>navigate(`/movie/${elem.title}`, { state: elem })}>
                   <div className="movie-suggestion-img">
                     <img src={elem.large_cover_image} className="movie-img"></img>
                   </div>
