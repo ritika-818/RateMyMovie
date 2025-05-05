@@ -30,8 +30,8 @@ const MovieContainer = () => {
     <div className="movie-container">
       <div className="movie-carousel" ref={carouselRef}>
         {images.map((elem, i) => (
-          <div key={i} className="movie-img-container" onClick={()=>navigate(`/movie/${elem.title}`, { state: elem })}>
-            <img className="movie-img" src={elem.large_cover_image} alt={`img-${i}`} />
+          <div key={i} className="movie-img-container" onClick={()=>navigate(`/movie/${elem.name}`, { state: elem })}>
+            <img className="movie-img" src={elem.image} alt={`img-${i}`} />
           </div>
         ))}
       </div>
@@ -41,11 +41,11 @@ const MovieContainer = () => {
           {images.map(
             (elem, i) =>
               i > currentIndex && (
-                <div className="movie-suggestion" key={i} onClick={()=>navigate(`/movie/${elem.title}`, { state: elem })}>
+                <div className="movie-suggestion" key={i} onClick={()=>navigate(`/movie/${elem.name}`, { state: elem })}>
                   <div className="movie-suggestion-img">
-                    <img src={elem.large_cover_image} className="movie-img"></img>
+                    <img src={elem.image} className="movie-img"></img>
                   </div>
-                  <div className="movie-suggestion-content">{elem.title}</div>
+                  <div className="movie-suggestion-content">{elem.name}</div>
                 </div>
               )
           )}

@@ -11,13 +11,13 @@ const SearchList = ({ images, setSearchVal, searchVal }) => {
             className="search-item"
             onClick={() => {
             setSearchVal("");
-              navigate(`/movie/${elem.title}`, { state: elem });
+              navigate(`/movie/${elem.name}`, { state: elem });
             }}
           >
             <div className="search-img-container">
-              <img src={elem.large_cover_image} className="search-img"></img>
+              <img src={elem.image} className="search-img"></img>
             </div>
-            <div className="search-title">{elem.title}</div>
+            <div className="search-title">{elem.name}</div>
           </div>
         ))}
       </div>

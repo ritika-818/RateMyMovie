@@ -22,7 +22,7 @@ const Header = () => {
   };
   const handleSearch = (val)=>{
     setSearchVal(val.trim());
-    const filterSearch = images.filter((item)=> item.title.toLowerCase().includes(searchVal.toLowerCase()));
+    const filterSearch = images.filter((item)=> item.name.toLowerCase().includes(searchVal.toLowerCase()));
     setFilterImg(filterSearch);
   }
 
